@@ -1,0 +1,115 @@
+.pagination {
+	max-width: 540px;
+	height: 52px;
+	background: #ffffff;
+	box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
+	border-radius: 10.4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 49px;
+	margin-bottom: 64px;
+
+	&__previous {
+		display: flex;
+		align-items: center;
+		margin: 0 50px 0 30px;
+		gap: 15px;
+
+		&:hover {
+			svg {
+				path {
+					fill: blue;
+				}
+			}
+		}
+	}
+
+	&__next {
+		display: flex;
+		align-items: center;
+		margin: 0 30px 0 50px;
+		gap: 15px;
+
+		&:hover {
+			svg {
+				path {
+					fill: blue;
+				}
+			}
+		}
+	}
+
+	a {
+		font-weight: 700;
+		font-size: 17px;
+		line-height: 25px;
+		display: flex;
+		align-items: center;
+		letter-spacing: 1.73333px;
+		color: #70778b;
+		position: relative;
+		padding: 5px;
+
+		&:hover {
+			color: #5876c5;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			background-color: #5876c5;
+			height: 3px;
+			width: 0;
+			left: 0;
+			bottom: -9px;
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+	}
+
+	.selected {
+		a {
+			&::after {
+				content: "";
+				position: absolute;
+				background-color: #5876c5;
+				height: 3px;
+				width: 0;
+				left: 0;
+				bottom: -9px;
+				width: 100%;
+			}
+		}
+	}
+
+	.previous {
+		a {
+			padding: 0;
+			&:hover::after {
+				width: 0%;
+			}
+		}
+	}
+	.next {
+		a {
+			padding: 0;
+			&:hover::after {
+				width: 0%;
+			}
+		}
+	}
+
+	.breakStyle {
+		a {
+			&:hover::after {
+				width: 0%;
+			}
+		}
+	}
+}
