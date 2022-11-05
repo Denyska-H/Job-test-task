@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<JobList />} />
-      <Route path="/detailed" element={<DetailedJob />} />
+      <Route path="/detailed/:jobID" element={<DetailedJob />} />
     </Routes>
   );
 }

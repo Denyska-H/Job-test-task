@@ -3,6 +3,12 @@
 @import "./fonts/fonts";
 
 body {
-	background: #f5f5f5;
 	font-family: "Proxima Nova";
+	background-color: #f5f5f5;
+}
+
+.wrapper {
+	background-color: #fff;
+	min-height: 100vh;
+	overflow: hidden;
 }

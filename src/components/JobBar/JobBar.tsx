@@ -1,39 +1,23 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-import test from '../../assets/img/test.jpg';
+import { JobBarProps } from './types';
 
-const JobBar: FC = () => {
-  // const getData = async () => {
-  //   const { data } = await axios.get(
-  //     'https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu',
-  //   );
-
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+const JobBar: FC<JobBarProps> = ({ id, title, createdAt, name, address, pictures }) => {
+  const date = createdAt.slice(0, 10);
 
   return (
     <div className="job">
       <div className="job__row">
         <div className="job__column">
           <div className="job__img">
-            <img src={test} alt="testImg" />
+            <img src={pictures[0]} alt="jobImg" />
           </div>
           <div className="job__info">
             <h3 className="job__title">
-              <Link to="/detailed">
-                Arbeitsmediziner/-in / Betriebsmediziner/-in (m/w/d) oder einen Arzt/eine Ärztin (m/{' '}
-                <br />
-                w/d) für die Weiterbildung zum Facharzt/ zur Fachärztin für Arbeitsmedizin (m/w/d)
-              </Link>
+              <Link to={`/detailed/${id}`}>{title}</Link>
             </h3>
-            <h4 className="job__department">
-              Department name • Allgemeines Krankenhaus der Stadt Wien - AKH
-            </h4>
+            <h4 className="job__department">Department name • {name}</h4>
             <div className="job__location">
               <div className="job__location-icon">
                 <svg
@@ -50,7 +34,7 @@ const JobBar: FC = () => {
                   />
                 </svg>
               </div>
-              <div className="job__spot">Vienna, Austria</div>
+              <div className="job__spot">{address}</div>
             </div>
           </div>
         </div>
@@ -113,7 +97,7 @@ const JobBar: FC = () => {
                 />
               </svg>
             </div>
-            <div className="job__post">Posted 2 days ago</div>
+            <div className="job__post">Posted {date}</div>
           </div>
         </div>
       </div>

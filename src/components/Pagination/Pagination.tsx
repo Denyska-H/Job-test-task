@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import ReactPaginate from 'react-paginate';
 
 const Pagination: FC = () => {
@@ -98,7 +98,7 @@ const Pagination: FC = () => {
           </svg>
         </div>
       }
-      onPageChange={(event) => console.log(event)}
+      onPageChange={() => window.scrollTo(0, 0)}
       pageRangeDisplayed={5}
       pageCount={10}
       marginPagesDisplayed={1}
