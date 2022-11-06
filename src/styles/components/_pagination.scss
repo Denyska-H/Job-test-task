@@ -1,6 +1,7 @@
 .pagination {
-	max-width: 540px;
+	max-width: 500px;
 	height: 52px;
+	padding: 0 20px;
 	background: #ffffff;
 	box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
 	border-radius: 10.4px;
@@ -46,6 +47,7 @@
 	a {
 		font-weight: 700;
 		font-size: 17px;
+		@include adaptive-font(17, 14);
 		line-height: 25px;
 		display: flex;
 		align-items: center;
@@ -110,6 +112,52 @@
 			&:hover::after {
 				width: 0%;
 			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.pagination {
+		max-width: 85%;
+		gap: 8px;
+		&__previous {
+			margin: 0 30px;
+			gap: 15px;
+		}
+
+		&__next {
+			margin: 0 30px;
+			gap: 15px;
+		}
+	}
+}
+
+@media (max-width: 540px) {
+	.pagination {
+		gap: 3px;
+		&__previous {
+			margin: 0 15px;
+			gap: 15px;
+		}
+
+		&__next {
+			margin: 0 15px;
+			gap: 15px;
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.pagination {
+		gap: 0px;
+		&__previous {
+			margin: 0 8px;
+			gap: 2px;
+		}
+
+		&__next {
+			margin: 0 8px;
+			gap: 2px;
 		}
 	}
 }
