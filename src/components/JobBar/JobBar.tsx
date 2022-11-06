@@ -38,7 +38,6 @@ const JobBar: FC<JobBarProps> = ({ id, title, createdAt, name, address, pictures
             </div>
           </div>
         </div>
-
         <div className="job__column">
           <div className="job__rating">
             <svg
