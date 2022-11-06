@@ -10,6 +10,7 @@ const DetailedJobInfo: FC<DetailedJobInfoProps> = ({ ...props }) => {
       <div className="detailed-job__information">
         <header className="detailed-job__header">
           <h1 className="detailed-job__title">Job Details</h1>
+          <div className="hr hr_job-details"></div>
           <nav className="detailed-job__menu">
             <ul className="detailed-job__links">
               <li className="detailed-job__link">
@@ -48,8 +49,8 @@ const DetailedJobInfo: FC<DetailedJobInfoProps> = ({ ...props }) => {
             </ul>
           </nav>
         </header>
-        <div className="hr"></div>
-        <button className="detailed-job__button">
+        <div className="hr hr_dissapear"></div>
+        <button className="detailed-job__button detailed-job__button_m">
           <span>Apply now</span>
         </button>
         <div className="detailed-job__info info">
@@ -57,8 +58,9 @@ const DetailedJobInfo: FC<DetailedJobInfoProps> = ({ ...props }) => {
             <h2 className="info__title">{props.title}</h2>
           </div>
           <div className="info__column">
-            <div className="info__salary">{props.salary}</div>
+            <div className="info__salary">€ {props.salary}</div>
             <div className="info__brutto">Brutto, per year</div>
+            <div className="info__post">Posted {dateOfPost}</div>
           </div>
         </div>
         <div className="detailed-job__post">Posted {dateOfPost}</div>
@@ -66,33 +68,37 @@ const DetailedJobInfo: FC<DetailedJobInfoProps> = ({ ...props }) => {
         <button className="detailed-job__button">
           <span>Apply now</span>
         </button>
-        <div className="detailed-job__additional">
-          <h2 className="detailed-job__title">Additional info</h2>
-          <div className="hr"></div>
-          <h3 className="detailed-job__add-label">Employment type</h3>
-          <ul className="detailed-job__types">
-            {props.employment_type.map((item, index) => (
-              <li key={index} className="detailed-job__type">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <h3 className="detailed-job__add-label">Benefits</h3>
-          <ul className="detailed-job__benefits">
-            {props.benefits.map((item, index) => (
-              <li key={index} className="detailed-job__benefit">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="detailed-job__pictures">
-          <h2 className="detailed-job__title">Attached images</h2>
-          <div className="hr"></div>
-          <div className="detailed-job__images">
-            {props.pictures.map((images, index) => (
-              <img key={index} src={images} alt="jobImages" />
-            ))}
+        <div className="detailed-job__bottom">
+          <div className="detailed-job__additional">
+            <h2 className="detailed-job__title">Additional info</h2>
+            <div className="hr"></div>
+            <h3 className="detailed-job__add-label">Employment type</h3>
+            <ul className="detailed-job__types">
+              {props.employment_type.map((item, index) => (
+                <li key={index} className="detailed-job__type">
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <h3 className="detailed-job__add-label">Benefits</h3>
+            <ul className="detailed-job__benefits">
+              {props.benefits.map((item, index) => (
+                <li key={index} className="detailed-job__benefit">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="detailed-job__pictures">
+            <h2 className="detailed-job__title">Attached images</h2>
+            <div className="hr"></div>
+            <ul className="detailed-job__images">
+              {props.pictures.map((images, index) => (
+                <li key={index}>
+                  <img src={images} alt="jobImages" />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -13,6 +13,8 @@
 		&:first-child {
 			flex: 0 1 57%;
 		}
+		flex-wrap: wrap;
+
 		flex: 0 1 43%;
 		padding: 0 67.5px;
 	}
@@ -25,11 +27,15 @@
 	&__title {
 		font-style: normal;
 		font-weight: 700;
-		font-size: 28px;
+		font-size: 27px;
 		line-height: 34px;
 		letter-spacing: 0.413333px;
 		color: #3a4562;
 		flex: 0 1 30%;
+
+		&_m {
+			display: none;
+		}
 	}
 
 	&__menu {
@@ -86,7 +92,7 @@
 		font-family: "Roboto";
 		font-style: normal;
 		font-weight: 400;
-		font-size: 18px;
+		@include adaptive-font(17, 13);
 		line-height: 24px;
 		letter-spacing: -0.5625px;
 		color: rgba(56, 65, 93, 0.355988);
@@ -125,7 +131,7 @@
 	&__type {
 		font-style: normal;
 		font-weight: 700;
-		font-size: 16px;
+		@include adaptive-font(16, 14);
 		line-height: 16px;
 		letter-spacing: -0.457143px;
 		color: #55699e;
@@ -148,7 +154,7 @@
 	&__benefit {
 		font-style: normal;
 		font-weight: 700;
-		font-size: 16px;
+		@include adaptive-font(16, 13);
 		line-height: 16px;
 		text-align: center;
 		letter-spacing: -0.4px;
@@ -172,8 +178,12 @@
 	&__images {
 		display: flex;
 		margin-top: 16px;
-		width: 200px;
-		height: 133px;
+		width: 100%;
+		height: 100%;
+
+		li {
+			margin-right: 8px;
+		}
 
 		img {
 			width: 100%;
@@ -193,6 +203,14 @@
 	mix-blend-mode: normal;
 	opacity: 0.13;
 	margin-top: 9px;
+
+	&_m {
+		display: none;
+	}
+
+	&_job-details {
+		display: none;
+	}
 }
 
 .info {
@@ -206,6 +224,10 @@
 			flex: 0 1 33%;
 		}
 		padding: 0 30px;
+	}
+
+	&__post {
+		display: none;
 	}
 
 	&__title {
@@ -249,7 +271,7 @@
 	&__title {
 		font-style: normal;
 		font-weight: 700;
-		font-size: 20px;
+		@include adaptive-font(20, 16);
 		line-height: 25px;
 		letter-spacing: -0.625px;
 		color: #e7eaf0;
@@ -263,7 +285,7 @@
 		font-family: "Roboto";
 		font-style: normal;
 		font-weight: 400;
-		font-size: 18px;
+		@include adaptive-font(18, 16);
 		line-height: 24px;
 		letter-spacing: -0.5625px;
 		color: #e8ebf3;
@@ -273,7 +295,7 @@
 		font-family: "Roboto";
 		font-style: normal;
 		font-weight: 400;
-		font-size: 18px;
+		@include adaptive-font(18, 16);
 		line-height: 24px;
 		letter-spacing: -0.5625px;
 		color: #e8ebf3;
@@ -303,6 +325,8 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
+		width: 100%;
+		height: 50%;
 
 		img {
 			width: 100%;
@@ -320,8 +344,8 @@
 }
 
 .return-to-job-list {
-	margin: 97px 0 162px 90px;
-	width: 15%;
+	margin: 97px 0 162px 50px;
+	width: 213px;
 	height: 50px;
 	border-radius: 8px;
 	background: #e4e5ea;
@@ -337,5 +361,168 @@
 		text-align: center;
 		text-transform: uppercase;
 		color: #3a4562;
+	}
+}
+
+@media (max-width: 990px) {
+	.detailed-job {
+		&__row {
+			flex-wrap: wrap;
+		}
+
+		&__column {
+			&:first-child {
+				flex: 0 1 100%;
+			}
+			flex: 0 1 100%;
+		}
+
+		&__bottom {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
+		&__title {
+			&_m {
+				margin-top: 63px;
+				display: block;
+			}
+		}
+	}
+
+	.hr {
+		display: block;
+		margin-bottom: 21px;
+		&_job-details {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.map {
+		margin: 0 auto;
+	}
+
+	.return-to-job-list {
+		margin: 0 auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+}
+
+@media (max-width: 510px) {
+	.detailed-job {
+		&__row {
+			margin-top: 30px;
+		}
+		&__header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		&__additional {
+			margin-top: 50px;
+		}
+
+		&__button {
+			&_m {
+				display: none;
+			}
+			display: block;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		&__post {
+			display: none;
+		}
+
+		&__pictures {
+			margin-top: 63px;
+		}
+	}
+
+	.info {
+		flex-wrap: wrap;
+		&__column {
+			position: relative;
+			display: flex;
+			margin-top: 15px;
+			&:first-child {
+				flex: 0 1 100%;
+			}
+			&:last-child {
+				flex: 0 1 100%;
+				flex-direction: column-reverse;
+			}
+		}
+
+		&__post {
+			display: block;
+			position: absolute;
+			top: 10px;
+			margin: 7px 0;
+			font-family: "Roboto";
+			font-style: normal;
+			font-weight: 400;
+			@include adaptive-font(17, 13);
+			line-height: 24px;
+			letter-spacing: -0.5625px;
+			color: rgba(56, 65, 93, 0.355988);
+		}
+
+		&__salary {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 5px;
+			margin-bottom: 14px;
+			align-items: center;
+		}
+		&__brutto {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
+
+	.hr {
+		&_dissapear {
+			display: none;
+		}
+
+		&_job-details {
+			display: block;
+		}
+	}
+
+	.map {
+		width: 350px;
+		height: 410px;
+		&__svg {
+			position: absolute;
+			top: 280px;
+		}
+
+		&__number {
+			font-style: normal;
+			font-weight: 300;
+			color: rgba(255, 255, 255, 0.669635);
+		}
+
+		&__email {
+			font-style: normal;
+			font-weight: 300;
+			color: rgba(255, 255, 255, 0.669635);
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.map {
+		width: 280px;
+
+		&__img {
+			height: 45%;
+		}
 	}
 }

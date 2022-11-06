@@ -6,6 +6,8 @@ import map from '../../assets/img/map.png';
 const DetailedJobMap: FC<DetailedJobMapProps> = ({ ...props }) => {
   return (
     <div className="detailed-job__column">
+      <h2 className="detailed-job__title detailed-job__title_m">Contacts</h2>
+      <div className="hr hr_m"></div>
       <div className="detailed-job__map map">
         <svg
           className="map__circle"
